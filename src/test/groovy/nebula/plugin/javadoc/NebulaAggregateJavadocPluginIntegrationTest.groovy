@@ -67,6 +67,7 @@ public class Utils {
 
         when:
         project.apply plugin: NebulaAggregateJavadocPlugin
+        project.gradle.buildListenerBroadcaster.projectsEvaluated(project.gradle)
         Javadoc aggregateJavadocs = project.tasks.findByName(NebulaAggregateJavadocPlugin.AGGREGATE_JAVADOCS_TASK_NAME)
         aggregateJavadocs.execute()
 

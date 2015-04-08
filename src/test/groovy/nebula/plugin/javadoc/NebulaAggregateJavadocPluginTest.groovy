@@ -9,6 +9,7 @@ class NebulaAggregateJavadocPluginTest extends ProjectSpec {
     def "apply plugin to single project build"() {
         when:
         project.apply plugin: NebulaAggregateJavadocPlugin
+        project.gradle.buildListenerBroadcaster.projectsEvaluated(project.gradle)
 
         then:
         !project.tasks.findByName(NebulaAggregateJavadocPlugin.AGGREGATE_JAVADOCS_TASK_NAME)
@@ -22,6 +23,7 @@ class NebulaAggregateJavadocPluginTest extends ProjectSpec {
 
         when:
         project.apply plugin: NebulaAggregateJavadocPlugin
+        project.gradle.buildListenerBroadcaster.projectsEvaluated(project.gradle)
 
         then:
         !project.tasks.findByName(NebulaAggregateJavadocPlugin.AGGREGATE_JAVADOCS_TASK_NAME)
@@ -38,6 +40,7 @@ class NebulaAggregateJavadocPluginTest extends ProjectSpec {
 
         when:
         project.apply plugin: NebulaAggregateJavadocPlugin
+        project.gradle.buildListenerBroadcaster.projectsEvaluated(project.gradle)
 
         then:
         Javadoc aggregateJavadocs = project.tasks.findByName(NebulaAggregateJavadocPlugin.AGGREGATE_JAVADOCS_TASK_NAME)
@@ -57,6 +60,7 @@ class NebulaAggregateJavadocPluginTest extends ProjectSpec {
 
         when:
         project.apply plugin: NebulaAggregateJavadocPlugin
+        project.gradle.buildListenerBroadcaster.projectsEvaluated(project.gradle)
 
         then:
         Javadoc aggregateJavadocs = project.tasks.findByName(NebulaAggregateJavadocPlugin.AGGREGATE_JAVADOCS_TASK_NAME)
