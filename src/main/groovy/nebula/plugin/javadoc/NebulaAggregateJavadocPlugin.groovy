@@ -12,17 +12,18 @@ class NebulaAggregateJavadocPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         Project rootProject = project.rootProject
-        Set<Project> javaSubprojects = getJavaSubprojects(rootProject)
+        rootProject.gradle.projectsEvaluated {
+            Set<Project> javaSubprojects = getJavaSubprojects(rootProject)
+            if (!javaSubprojects.isEmpty()) {
+                rootProject.task(AGGREGATE_JAVADOCS_TASK_NAME, type: Javadoc) {
+                    description = 'Aggregates Javadoc API documentation of all subprojects.'
+                    group = JavaBasePlugin.DOCUMENTATION_GROUP
+                    dependsOn javaSubprojects.javadoc
 
-        if(!javaSubprojects.isEmpty()) {
-            rootProject.task(AGGREGATE_JAVADOCS_TASK_NAME, type: Javadoc) {
-                description = 'Aggregates Javadoc API documentation of all subprojects.'
-                group = JavaBasePlugin.DOCUMENTATION_GROUP
-                dependsOn javaSubprojects.javadoc
-
-                source javaSubprojects.javadoc.source
-                destinationDir rootProject.file("$rootProject.buildDir/docs/javadoc")
-                classpath = rootProject.files(javaSubprojects.javadoc.classpath)
+                    source javaSubprojects.javadoc.source
+                    destinationDir rootProject.file("$rootProject.buildDir/docs/javadoc")
+                    classpath = rootProject.files(javaSubprojects.javadoc.classpath)
+                }
             }
         }
     }
