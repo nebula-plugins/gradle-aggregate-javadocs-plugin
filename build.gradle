@@ -1,6 +1,6 @@
 buildscript {
     repositories { jcenter() }
-    dependencies { classpath 'com.netflix.nebula:nebula-plugin-plugin:2.2.+' }
+    dependencies { classpath 'com.netflix.nebula:nebula-plugin-plugin:2.4.+' }
 }
 
 description 'Aggregates Javadocs across all projects in a multi-project build'
@@ -16,7 +16,7 @@ contacts {
 }
 
 dependencies {
-    testCompile('com.netflix.nebula:nebula-test:2.2.+') {
+    testCompile('com.netflix.nebula:nebula-test:2.4.+') {
         exclude group: 'org.codehaus.groovy'
     }
 }

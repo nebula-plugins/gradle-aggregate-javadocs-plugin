@@ -16,7 +16,7 @@ To include, add the following to your build.gradle
         repositories { jcenter() }
 
         dependencies {
-            classpath 'com.netflix.nebula:gradle-aggregate-javadocs-plugin:2.2.+'
+            classpath 'com.netflix.nebula:gradle-aggregate-javadocs-plugin:2.4.+'
         }
     }
 
