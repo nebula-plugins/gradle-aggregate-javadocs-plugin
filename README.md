@@ -1,5 +1,10 @@
 gradle-aggregate-javadocs-plugin
 ================================
+[![Build Status](https://travis-ci.org/nebula-plugins/projects/gradle-aggregate-javadocs-plugin.svg?branch=master)](https://travis-ci.org/nebula-plugins/projects/gradle-aggregate-javadocs-plugin)
+[![Coverage Status](https://coveralls.io/repos/nebula-plugins/projects/gradle-aggregate-javadocs-plugin/badge.svg?branch=masterservice=github)](https://coveralls.io/github/nebula-plugins/projects/gradle-aggregate-javadocs-plugin?branch=master)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nebula-plugins/projects/gradle-aggregate-javadocs-plugin?utm_source=badgeutm_medium=badgeutm_campaign=pr-badge)
+[![Apache 2.0](https://img.shields.io/github/license/nebula-plugins/projects/gradle-aggregate-javadocs-plugin.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+
 
 In a multi-project setup containing one or many Java-based projects, Javadocs are only created for individual subprojects.
 There are certain use cases that requires you merge Javadocs for all subprojects of your build. Creating a reusable library
