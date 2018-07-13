@@ -33,3 +33,17 @@ To include, add the following to your build.gradle
 To aggregate Javadocs across all subprojects, execute the task `aggregateJavadocs` available to the root project. The task
 declares a task dependencies on the task `javadoc` provided by the Java plugin. The resulting Javadoc report is located
 in the directory `project.buildDir/docs/javadoc`.
+
+### Configuring the Plugin
+
+You can specify subprojects to include, in which case only those projects will be aggregated. Alternatively you can specify
+subprojects to exclude, in which case all other projects will be aggregated. You may not specify both.
+
+The sample below shows the configuration options.
+
+    apply plugin: 'nebula-aggregate-javadocs'
+    
+    aggregateJavadocs {
+        include 'subproject-name', 'other-subproject'
+        exclude 'subproject-name', 'other-subproject'
+    }
